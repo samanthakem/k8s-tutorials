@@ -10,15 +10,15 @@ Although you are able to use [Google Cloud Shell](https://cloud.google.com/shell
 
 The following steps will get you ready to use the Cloud SDK! You can also find out how to install it from [Google's official documentation](https://cloud.google.com/sdk/docs/quickstarts).
 
-1. Download the latest release by typing:
+**1.** Download the latest release by typing:
 
         curl https://sdk.cloud.google.com | bash
 
-2. You will be asked some questions (installation directory)
+**2.** You will be asked some questions (installation directory)
 
-3. Restart your terminal
+**3.** Restart your terminal
 
-4. Make sure your SDK is successfully installed by typing:
+**4.** Make sure your SDK is successfully installed by typing the following command which will give you the path where the sdk was installed:
 
         which gcloud
 
