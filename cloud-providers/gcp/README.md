@@ -6,7 +6,7 @@ Make sure you have a Google Cloud Platform account before continuing this tutori
 
 ## Installing Google Cloud SDK
 
-Although you are able to use [Google Cloud Shell](https://cloud.google.com/shell/docs/) which provides you an easy way for you to manage your Cloud Platform Console projects and resources straight from your browser without having to install the Google Cloud SDK and other tools on your system, however in this tutorial, we are going to use [Google Cloud SDK](https://cloud.google.com/sdk/). With Cloud Shell, the Cloud SDK gcloud command and other utilities you need are always available when you need them.
+Although you are able to use [Google Cloud Shell](https://cloud.google.com/shell/docs/) which provides you an easy way for you to manage your Cloud Platform Console projects and resources straight from your browser without having to install the Google Cloud SDK and other tools on your system, in this tutorial, we are going to use [Google Cloud SDK](https://cloud.google.com/sdk/). With Cloud Shell, the Cloud SDK gcloud command and other utilities you need are always available when you need them.
 
 The following steps will get you ready to use the Cloud SDK! You can also find out how to install it from [Google's official documentation](https://cloud.google.com/sdk/docs/quickstarts).
 
