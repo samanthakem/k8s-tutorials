@@ -8,7 +8,7 @@ Make sure you have a Google Cloud Platform account before continuing this tutori
 
 Although you are able to use [Google Cloud Shell](https://cloud.google.com/shell/docs/) which provides you an easy way for you to manage your Cloud Platform Console projects and resources straight from your browser without having to install the Google Cloud SDK and other tools on your system, however in this tutorial, we are going to use [Google Cloud SDK](https://cloud.google.com/sdk/). With Cloud Shell, the Cloud SDK gcloud command and other utilities you need are always available when you need them.
 
-The following steps will get you ready to use the Cloud SDK... :raised_hands: :raised_hands: you can also find out how to install it from [Google's official documentation](https://cloud.google.com/sdk/docs/quickstarts).
+The following steps will get you ready to use the Cloud SDK! You can also find out how to install it from [Google's official documentation](https://cloud.google.com/sdk/docs/quickstarts).
 
 1. Download the latest release by typing:
 
@@ -21,4 +21,6 @@ The following steps will get you ready to use the Cloud SDK... :raised_hands: :r
 4. Make sure your SDK is successfully installed by typing:
 
         which gcloud
+
+Now you are able to use `gcloud` command. :raised_hands: :raised_hands:
 
