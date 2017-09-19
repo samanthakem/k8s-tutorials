@@ -24,3 +24,9 @@ The following steps will get you ready to use the Cloud SDK! You can also find o
 
 Now you are able to use `gcloud` command. :raised_hands: :raised_hands:
 
+
+## Create a project
+
+A GCP project is required for this tutorial. You can use an existing GCP project or [create a new one](https://console.cloud.google.com/projectcreate?organizationId=0). Make sure you save your `PROJECT_ID` somewhere since this info is going to be very important in next steps.
+
+**Note:** Your project name maybe different from your project id.
