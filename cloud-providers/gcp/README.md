@@ -12,7 +12,7 @@ The following steps will get you ready to use the Cloud SDK... :raised_hands: :r
 
 1. Download the latest release by typing:
 
-        `curl https://sdk.cloud.google.com | bash`
+        curl https://sdk.cloud.google.com | bash
 
 2. You will be asked some questions (installation directory)
 
@@ -20,5 +20,5 @@ The following steps will get you ready to use the Cloud SDK... :raised_hands: :r
 
 4. Make sure your SDK is successfully installed by typing:
 
-        `which gcloud`
+        which gcloud
 
