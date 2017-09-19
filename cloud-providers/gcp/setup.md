@@ -1,3 +1,5 @@
+# Spinning up your first Kubernetes cluster on GKE
+
 ## Create a GCP Account
 
 Make sure you have a Google Cloud Platform account before continuing this tutorial. You can use an existing GCP account or [sign up](https://console.cloud.google.com/freetrial) for a new one with a valid Gmail account.
@@ -30,3 +32,11 @@ Now you are able to use `gcloud` command. :raised_hands: :raised_hands:
 A GCP project is required for this tutorial. You can use an existing GCP project or [create a new one](https://console.cloud.google.com/projectcreate?organizationId=0). Make sure you save your `PROJECT_ID` somewhere since this info is going to be very important in next steps.
 
 **Note:** Your project name maybe different from your project id.
+
+## Enable Compute Engine and Container Engine APIs
+
+In order to create the cloud resources required by this tutorial, you will need to enable the following APIs using the Google API Console:
+
+* [Compute Engine API](https://console.cloud.google.com/apis/api/compute_component/overview)
+
+* [Container Engine API](https://console.cloud.google.com/apis/api/container/overview)
