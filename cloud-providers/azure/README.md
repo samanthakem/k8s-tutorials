@@ -12,6 +12,8 @@ You are going to be asked to answer some configurations options such as installa
 
 Once you are done with the installation, run ```az -v``` and you will see info about the current version of Azure CLI in your machine.
 
+**Note:** It you have problems with the ```az``` command and it fails with a meaningless error, add  a  debug flag: ```--debug```
+
 ## Login into your Azure Account
 
 In order to use all the azure commands, you will need to be logged in into an Azure account. If you don't have an Azure account, [create one](https://azure.microsoft.com/en-in/free/).
@@ -49,19 +51,19 @@ Now you are done with setting up.
 
 ## Next step: create an actual k8s cluster on Azure
 
-This tutorial will show you how to create a cluster in ```west europe``` named ```az-europe``` with only 1 agent.
+This tutorial will show you how to create a cluster in ```west europe``` named ```k8s-cluster-eu``` with only 1 agent.
 
 ### First, create a Resource Group...
 
 Resource groups provide a way to monitor, control access, provision and manage billing for collections of assets that are required to run an application, or used by a client or company department. According to the [official documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), resource group is a container that holds related resources for an Azure solution. To create a resource group, run:
 
-        az group create --name az-west-europe --location westeurope
+        az group create --name az-west-eu --location westeurope
     
 where:
 
-```az-west-europe``` is the name of the resource.
+* ```az-west-eu``` is the name of the resource.
 <br/>
-```westeurope``` is the resource location.
+* ```westeurope``` is the resource location.
 
 Once you finish running this command, you will get:
 
@@ -76,7 +78,61 @@ Once you finish running this command, you will get:
           "tags": null
         }
 
+That means you successfully created a resource group on Azure.
 
+**Note:** You can see other locations by running:
+
+```az account list-locations``
+
+### Finally, creating a k8s cluster using the created resource group
+
+Run:
+
+    az acs create --orchestrator-type kubernetes --resource-group az-west-eu --name k8s-cluster-eu --generate-ssh-keys --agent-count 1
+
+where:
+
+* ```--resource-group``` defines which resource group will be refered.
+* ```--name``` defines the cluster name.
+* ```--generate-ssh-keys``` generates (dâ) ssh keys in your machine for authentication purposes
+
+## Authorizing k8s client to operate with your cluster
+
+In order for you to operate the cluster created on Azure, you need to get the credentials to connect the ```kubectl``` with the cluster.
+
+To do so, run:
+
+    az acs kubernetes get-credentials --resource-group [YOUR-RESOURCE-GROUP-NAME] --name [YOUR-CLUSTER-NAME]
+
+When it finishs, you will note that the kubernetes config file located in ```~/.kube/config``` will contain the credentials to operate on the cluster.
+
+Now, let's make sure everything is working fine and that you have access to the cluster through the k8s client.
+
+Run the following command to see if the clusters were added to your kubernetes configuration:
+
+    kubectl config get-contexts
+
+It should be able to see the cluster that you just created.
+
+Now, if you want so see the resources allocated to the cluster, run:
+
+    kubectl get pods --all-namespaces
+
+So... that's it, you now have a up and running cluster on you Azure provider and it is possible to manage it by using Kubernetes client (kubectl). Yay! :smile:
+
+## Optional: Delete the Kubernetes Cluster
+
+In case you want to delete your cluster, run:
+
+    az acs delete --name [YOUR-CLUSTER-NAME] --resource-group [RESOURCE-GROUP-CONTAINING-YOUR-CLUSTER]
+
+## Optional: Delete the Resource Group
+
+Run: 
+
+    az group delete --name [RESOURCE-GROUP-CONTAINING-THE-CLUSTER]
+
+**Note:** When you delete the resource group, you also delete resources other than a cluster, becareful with this command...
 
 
 
