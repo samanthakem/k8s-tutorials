@@ -62,7 +62,6 @@ Resource groups provide a way to monitor, control access, provision and manage b
 where:
 
 * ```az-west-eu``` is the name of the resource.
-<br/>
 * ```westeurope``` is the resource location.
 
 Once you finish running this command, you will get:
