@@ -82,7 +82,7 @@ That means you successfully created a resource group on Azure.
 
 **Note:** You can see other locations by running:
 
-```az account list-locations``
+```az account list-locations```
 
 ### Finally, creating a k8s cluster using the created resource group
 
