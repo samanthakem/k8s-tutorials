@@ -96,3 +96,18 @@ In order to build the image, run:
 With our image ready, pushing it to the Container Registry is simply:
 
 ```gcloud docker -- push gcr.io/[PROJECT-ID]/hello-go:0.0.1```
+
+This may take a while but once it's done, we should have the image listed on Compute > Container Engine > Container Registry. which can be managed/orchestrated by Kubernetes!
+
+All we have now is a Docker image on the Container Registry. To actually run the application, we need to create an instance from the image - A Docker container. To achieve this, we will create a Kubernetes Deployment which creates a pod for our container.
+
+There are two ways to create a deployment using the kubectl command. You can either specify the parameters in a yml file or the command-line.
+
+**Command-line**
+
+Run:
+
+
+```kubectl run [DEPLOYMENT_NAME] --image=gcr.io/[PROJECT_ID]/[IMAGE]:[TAG] --port=[PORT]```
+
+**File**
