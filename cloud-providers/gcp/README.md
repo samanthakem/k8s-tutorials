@@ -99,6 +99,9 @@ With our image ready, pushing it to the Container Registry is simply:
 
 This may take a while but once it's done, we should have the image listed on Compute > Container Engine > Container Registry. which can be managed/orchestrated by Kubernetes!
 
+
+## Deployment
+
 All we have now is a Docker image on the Container Registry. To actually run the application, we need to create an instance from the image - A Docker container. To achieve this, we will create a Kubernetes Deployment which creates a pod for our container.
 
 There are two ways to create a deployment using the kubectl command. You can either specify the parameters in a yml file or the command-line.
@@ -111,3 +114,35 @@ Run:
 ```kubectl run [DEPLOYMENT_NAME] --image=gcr.io/[PROJECT_ID]/[IMAGE]:[TAG] --port=[PORT]```
 
 **File**
+
+Check the ```deployment.yml``` file to see the code.
+
+To create a deployment, run:
+
+```kubectl create -f deployment.yml```
+
+You can view the deployment and the created pods by running kubectl get deployments and kubectl get pods respectively. Adding a -w enables us to see how the pods are created.
+
+## Service
+
+By creating a service, you will expose an application to external traffic. Currently, the deployment is only accessible within the Kubernetes cluster.
+
+```A Kubernetes Service is an abstraction which defines a logical set of Pods and a policy by which to access them - sometimes called a micro-service. It enables external traffic exposure, load balancing and service discovery for those Pods. ```
+
+Just like a deployment, you can create a service from a them command-line or from a file.
+
+**Command-line**
+
+Run:
+
+```kubectl expose deployment [SERVICE_NAME] --type="LoadBalancer"```
+
+**File**
+
+Check the ```service.yml``` file to see the code.
+
+To create the service, run:
+
+```kubectl create -f service.yml```
+
+Once the service is created, we can get the externally accessible IP address by listing all the services. To do so, run: ```kubectl get services```. The external IP may take a few seconds to be visible. 

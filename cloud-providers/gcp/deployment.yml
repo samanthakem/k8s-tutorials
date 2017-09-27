@@ -2,17 +2,19 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: hello-world-deployment
+  labels:
+    app: corc-tutorial-180417
 spec:
   #Run two instances of our application
   replicas: 2
   template:
     metadata:
       labels:
-        run: hello-world-deployment
+        app: corc-tutorial-180417
     spec:
       #Container details
       containers:
-        - name: node-app
+        - name: hello-app
           image: gcr.io/corc-tutorial-180417/hello-app
           imagePullPolicy: Always
           #Ports to expose
