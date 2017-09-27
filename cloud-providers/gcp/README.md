@@ -82,3 +82,17 @@ Finally, check all your configurations are all good by running:
 Also, verify if you are able to see all the resources:
 
 ```kubectl get pods --all-namespaces```
+
+# Deploying an app
+
+To create our Google Cloud platform Docker image, we have to follow some rules before it is pushed to the Google Container Registry. The image has to be created in the following format: ```gcr.io/[PROJECT-ID]/[IMAGE]:[TAG]```
+
+Check this [link](https://github.com/samanthakem/hello-go) which is a simple Go application with Dockerfile on it.
+
+In order to build the image, run:
+
+```docker build -t gcr.io/[PROJECT-ID]/hello-go:0.0.1 .``` inside the cloned repo.
+
+With our image ready, pushing it to the Container Registry is simply:
+
+```gcloud docker -- push gcr.io/[PROJECT-ID]/hello-go:0.0.1```
