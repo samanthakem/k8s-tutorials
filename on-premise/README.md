@@ -53,4 +53,36 @@ Run:
 
     ubuntu@master-node:~$ sudo kubeadm init
 
+Once you are done with this command, you will be asked to follow these instructions:
 
+    ubuntu@master-node:~$ mkdir -p $HOME/.kube
+    ubuntu@master-node:~$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    ubuntu@master-node:~$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You then need to enable the networking and network policy in kubernetes across the cluster. Run:
+
+```$ kubectl apply -f http://docs.projectcalico.org/v2.3/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml```
+
+Finally, check if everything is work fine by running:
+
+```$ kubectl get pods --all-namespaces```
+
+**Note:** If you want to watch the command so you don't have to run the same command several times in order to see if the resource is running/ready, just add ```watch``` before your command.
+
+### Joining a node to the cluster
+
+In order to add worker nodes to your cluster, you must follow the steps ```2.1``` to ```2.5``` for installing the packages and then ```join``` the newly created node to the cluster. To join your node to the cluster, run the following command in the worker node:
+
+```kubeadmin join --token [CLUSTER-TOKEN] [MASTER-NODE-IP:PORT]```
+
+If you don't remember the cluter token, run the following command into the master node:
+
+```sudo kubeadm token list```
+
+### Checking if the node were joined successfully:
+
+To see if the join happened with no problem. run:
+
+```kubectl get nodes```
+
+You will see the status for every single node. Now you are able to manage your cluster using kubectl. For using kubectl from your local computer, you just need a copy of the ```$HOME/.kube/config``` file in your computer and make sure that master is accessible from your computer.

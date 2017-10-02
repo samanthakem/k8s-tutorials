@@ -6,7 +6,7 @@ metadata:
     app: corc-tutorial-180417
 spec:
   #Run two instances of our application
-  replicas: 2
+  replicas: 3
   template:
     metadata:
       labels:
