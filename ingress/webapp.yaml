@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+name: webapp
+annotations:
+    # This tells to only use the Nginx Ingress Controller
+    # and avoids the creation on a Global LoadBalancer on GKE.
+    kubernetes.io/ingress.class: "nginx"
+spec:
+rules:
+- host: webapp.10.103.140.205.xip.io
+    http:
+    paths:
+    - path: /
+        backend:
+        serviceName: frontend-service
+        servicePort: 80
+    - path: /testback
+        backend:
+        serviceName: backend-service
+        servicePort: 80
