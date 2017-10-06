@@ -48,7 +48,7 @@ Now that you have **helm** installed in your machine and **tiller** setup in you
 
     helm install stable/nginx-ingress --name ingress -f values.yaml
 
-Where ```values.yaml``` are defined in [its official repo](https://github.com/kubernetes/charts/blob/master/stable/nginx-ingress/values.yaml) or [here](). If you are getting the ```values.yaml``` from the official repository, make sure you change the service type to ```NodePort``` and define the nodePorts since on-premise clusters do not support ```LoadBalancer``` services. To do so, uncomment [this](https://github.com/kubernetes/charts/blob/master/stable/nginx-ingress/values.yaml#L110) and delete (or comment out) [this](https://github.com/kubernetes/charts/blob/master/stable/nginx-ingress/values.yaml#L108).
+Where ```values.yaml``` are defined in [its official repo](https://github.com/kubernetes/charts/blob/master/stable/nginx-ingress/values.yaml) or [here](https://github.com/samanthakem/k8s-tutorials/blob/master/ingress/values.yaml). If you are getting the ```values.yaml``` from the official repository, make sure you change the service type to ```NodePort``` and define the nodePorts since on-premise clusters do not support ```LoadBalancer``` services. To do so, uncomment [this](https://github.com/kubernetes/charts/blob/master/stable/nginx-ingress/values.yaml#L110) and delete (or comment out) [this](https://github.com/kubernetes/charts/blob/master/stable/nginx-ingress/values.yaml#L108).
 
 If everything goes right, you will get an output similar to:
 
