@@ -12,7 +12,7 @@ In your local machine, install **helm**:
 
     brew install kubernetes-helm
 
-Now, do ssh into your cluster master node and run:
+Now, run to install ```tiller``` in your cluster:
 
     helm init --kube-context on-prem-cluster
 
