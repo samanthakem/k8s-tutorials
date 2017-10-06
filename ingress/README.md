@@ -125,8 +125,8 @@ Yay! We have a Nginx Ingress Controller up and running in our cluster, now we ar
 
 Follow [this]() tutorial to acomplish this task so we can move forward to the main part which is handling Ingress resources. When you finish this tutorial, you will have three working services:
 
-    frontend
-    service
+    frontend-service
+    backend-service
     microbot
 
 Now, for the next step which is actuallt creating the ```Ingress``` resource, we will need a DNS to use as hosts. Let's use [xip.io](http://xip.io/) for demo purposes.
