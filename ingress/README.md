@@ -14,7 +14,7 @@ In your local machine, install **helm**:
 
 Now, do ssh into your cluster master node and run:
 
-    helm init --context on-prem-cluster
+    helm init --kube-context on-prem-cluster
 
 By running this command you will be able to comunicate with your cluster from your local machine. For more information, access the [official documentation](https://docs.helm.sh/using_helm/#installing-helm).
 
